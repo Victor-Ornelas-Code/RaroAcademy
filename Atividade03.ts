@@ -150,34 +150,60 @@ function conjuntoPossuiElemento (numeroDoConjunto: number , conjunto: number[]){
     return false;
 }
 
+// Nova Implementaçã:
+
 function uniaoAB(conjuntoA: number[] , conjuntoB: number[]){
     const conjuntoC: number[] = [];
 
     for (let i in conjuntoA) {
         const numeroDoConjuntoA = conjuntoA[i];
+        const numeroDoConjuntoB = conjuntoB[i]
 
-        const respPossuiElemento = conjuntoPossuiElemento(numeroDoConjuntoA, conjuntoC);
+        const respPossuiElementoA = conjuntoPossuiElemento(numeroDoConjuntoA, conjuntoC);
+        const respPossuiElementoB = conjuntoPossuiElemento(numeroDoConjuntoB, conjuntoA)
 
-        if(!respPossuiElemento) {
+        if(!respPossuiElementoA) {
             conjuntoC.push(numeroDoConjuntoA);
         }
-    }
-    
-    for (let j in conjuntoB) {
-        const numeroDoConjuntoB = conjuntoB[j];
 
-        const respPossuiElemento = conjuntoPossuiElemento(numeroDoConjuntoB, conjuntoC);
-
-        if(!respPossuiElemento) {
-            conjuntoC.push(numeroDoConjuntoB);
-        }
+        if(!respPossuiElementoB) {
+            conjuntoC.push(numeroDoConjuntoB)
+        }  
     }
-    
+
     console.log(conjuntoC)
     return conjuntoC
-
 }
 
+
+// FUNCÃO ANTIGA:
+
+// function uniaoAB(conjuntoA: number[] , conjuntoB: number[]){
+//     const conjuntoC: number[] = [];
+
+//     for (let i in conjuntoA) {
+//         const numeroDoConjuntoA = conjuntoA[i];
+
+//         const respPossuiElementoA = conjuntoPossuiElemento(numeroDoConjuntoA, conjuntoC);
+
+//         if(!respPossuiElementoA) {
+//             conjuntoC.push(numeroDoConjuntoA);
+//         }
+//     }
+    
+//     for (let j in conjuntoB) {
+//         const numeroDoConjuntoB = conjuntoB[j];
+
+//         const respPossuiElemento = conjuntoPossuiElemento(numeroDoConjuntoB, conjuntoC);
+
+//         if(!respPossuiElemento) {
+//             conjuntoC.push(numeroDoConjuntoB);
+//         }
+//     }
+    
+//     console.log(conjuntoC)
+//     return conjuntoC
+// }
 
 uniaoAB(a , b)
 uniaoAB(b , a)
