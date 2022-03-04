@@ -5,7 +5,10 @@
 function valoresDeX(a: number){
     return function(b: number){
         return function(c: number){
-            const delta = Math.pow(b,2) - ((4 * a * c));           
+            const delta = Math.pow(b,2) - ((4 * a * c));
+            if (delta < 0){
+                return console.log('Equação não possui raizes reais')
+            }           
             const valorDeXRaizDeltaPositivo = (-b + Math.sqrt(delta))/(2 * a);
             const valorDeXRaizDeltaNegativo = (-b - Math.sqrt(delta))/(2 * a);
             console.log(`Solução = {${valorDeXRaizDeltaNegativo}, ${valorDeXRaizDeltaPositivo}}`);
@@ -14,7 +17,7 @@ function valoresDeX(a: number){
     }
 }
 
-valoresDeX(1)(4)(0)
+valoresDeX(5)(1)(1)
 
 
 
